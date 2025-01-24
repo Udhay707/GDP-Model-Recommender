@@ -32,8 +32,8 @@ jobs:
                     context: .
                     push: true
                     tags: |
-                        ${{secrets.DOCKER_USERNAME}}/backend-ai-bg-remover:${{ github.sha }}
-                        ${{secrets.DOCKER_USERNAME}}/backend-ai-bg-remover:latest  
+                        ${{secrets.DOCKER_USERNAME}}/model-recommender:${{ github.sha }}
+                        ${{secrets.DOCKER_USERNAME}}/model-recommender:latest  
         
             - name: Logout from Docker Hub
               run: docker logout
