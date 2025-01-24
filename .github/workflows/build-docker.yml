@@ -11,6 +11,7 @@ on:
 jobs:
     build:
         runs-on: ubuntu-latest
+        environment: DEV
         
         steps:
             - name: Code Checkout
@@ -35,4 +36,4 @@ jobs:
                         ${{secrets.DOCKER_USERNAME}}/backend-ai-bg-remover:latest  
         
             - name: Logout from Docker Hub
-              run: docker logout      
+              run: docker logout
