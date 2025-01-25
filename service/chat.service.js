@@ -9,11 +9,15 @@ const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
 
 const HUGGING_FACE_URL = process.env.HUGGING_FACE_API;
 
+const task = {};
+
 
 async function chatWithGemini(userRequirement){
     try{
-        const tasks = await getHuggingFaceCategories();
-        const categories = new Set(tasks);
+        if(!task['categories']){
+            task['categories'] = new Set(await getHuggingFaceCategories());
+        }
+        const categories = task["categories"];
         const prompt = getPrompt(userRequirement, categories);
         const response = await getGeminiResponse(prompt)
         const category = checkAndGetCategory(response, categories);
@@ -55,7 +59,7 @@ async function getHuggingFaceCategories() {
         });
   
         const categories = Object.keys(response.data);
-        console.log('Categories:', categories);
+        console.debug('Categories:', categories);
         return categories;
     } catch (error) {
         console.error('Error fetching categories:', error.response ? error.response.data : error.message);
