@@ -32,7 +32,7 @@ To set up the project locally:
 # Start the application
 `npm start`
 
-Prerequisites
+# Prerequisites
 
 Node.js version 18 or later.
 
