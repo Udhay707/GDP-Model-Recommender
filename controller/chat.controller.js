@@ -10,7 +10,7 @@ const chatController = async (req, res)  => {
         res.status(200);
         res.json(typeof result === 'object' ? result : {message:result})
     } catch (error) {
-      console.error('Error generating stream:', error);
+      console.error('Error generating response:', error);
       res.status(400);
       res.json({message:error.message})
       res.end();

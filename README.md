@@ -6,17 +6,17 @@ The application not only assists in identifying the most suitable AI models but 
 
 Features
 
-Model Recommendation: Suggests AI models based on user requirements.
+**Model Recommendation**: Suggests AI models based on user requirements.
 
-Deployment Assistance: Automates the deployment of recommended models.
+**Deployment Assistance**: Automates the deployment of recommended models.
 
-User-Friendly API: Simple and intuitive RESTful API for interacting with the system.
+**User-Friendly API**: Simple and intuitive RESTful API for interacting with the system.
 
-Scalable Design: Built to handle a variety of user requirements and scale as needed.
+**Scalable Design**: Built to handle a variety of user requirements and scale as needed.
 
-Error Handling and Logging: Ensures robust operation and easy debugging.
+**Error Handling and Logging**: Ensures robust operation and easy debugging.
 
-Installation
+#Installation
 
 To set up the project locally:
 

@@ -31,6 +31,7 @@ async function chatWithGemini(userRequirement){
 
 async function getGeminiResponse(prompt) {
     const result = await model.generateContent(prompt);
+    console.debug(result.response.candidates[0].content.parts[0].text);
     const resultCategory = result.response.candidates[0]?.content?.parts[0]?.text;
 
     if (!resultCategory) {
@@ -41,12 +42,12 @@ async function getGeminiResponse(prompt) {
 }
 
 function getPrompt(userRequirement, categories) {
-    let prompt = "Help the user to choose the appropriate and most relevant category from Hugging Face Tasks that perfectly suits the user requirements";
+    let prompt = "Help the user to choose the appropriate and most relevant category from Hugging Face Tasks for the user's requirement";
+    prompt = prompt + "\nThe user's requirement is \n'";
+    prompt = prompt + userRequirement;
+    prompt = prompt + "'\nSelect the best suited category from the categories listed below, don't generate unnecessary explaination. Provide the category as it is listed";
     prompt = prompt + "Below are the list of available categories: \n";
     prompt = prompt + categories;
-    prompt = prompt + "\nThe user's requirement is given as below \n";
-    prompt = prompt + userRequirement;
-    prompt = prompt + "Provide only the most suited category as response, don't generate unnecessary explaination";
     return prompt;
 }
 
@@ -72,8 +73,8 @@ async function getHuggingFaceModels(category){
         const response = await axios.get(`${HUGGING_FACE_URL}/models`,{
             params: {
                 filter: category,
-                sort: "likes",
-                limit: 5
+                sort: "downloads",
+                limit: 5,
             },
             headers: {
                 Authorization: `Bearer ${HUGGING_FACE_KEY}`,
@@ -82,6 +83,7 @@ async function getHuggingFaceModels(category){
         const models = response.data;
         const modelsList = [];
         for(let model of models){
+            console.log(model.downloads);
             modelsList.push(model.id);
         }
         return modelsList;
@@ -93,7 +95,7 @@ async function getHuggingFaceModels(category){
 }
 
 function checkAndGetCategory(response, categories){
-    response = response.toLowerCase().replace(' ', '-');
+    response = response.toLowerCase().replaceAll(' ', '-').trim();
     for(let category of categories){
         if(response.includes(category))
             return category;
