@@ -23,7 +23,7 @@ jobs:
 
       - name: Bump version
         id: tag
-        uses: anothrNick/github-tag-action@v1.38.0
+        uses: anothrNick/github-tag-action@v1.71.0
         with:
           github_token: ${{ secrets.GHUB_TOKEN }}
           default_bump: patch
