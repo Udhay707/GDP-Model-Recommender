@@ -21,10 +21,10 @@ Features
 To set up the project locally:
 
 # Clone the repository
-git clone https://github.com/Udhay707/GDP-Model-Recommender.git
+`git clone https://github.com/Udhay707/GDP-Model-Recommender.git`
 
 # Navigate to the project directory
-cd GDP-Model-Recommender
+`cd GDP-Model-Recommender`
 
 # Install dependencies
 `npm install`
