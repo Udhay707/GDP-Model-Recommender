@@ -25,7 +25,7 @@ jobs:
         id: tag
         uses: anothrNick/github-tag-action@1.71.0
         with:
-          github_token: ${{ secrets.GHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           default_bump: patch
           tag_prefix: "v"
           push_to_branch: main
@@ -43,4 +43,4 @@ jobs:
             - Automated release with incremented version.
           draft: false
           prerelease: false
-          token: ${{ secrets.GHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
