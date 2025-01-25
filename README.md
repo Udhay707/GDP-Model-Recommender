@@ -1,4 +1,4 @@
-About
+# About
 
 The GDP (Group Design Project) Model Recommender is a Node.js-based application designed to recommend AI project models tailored to users' specific requirements. This project is ideal for individuals or organizations with little knowledge of AI but with a clear need for AI-powered solutions.
 
@@ -43,9 +43,7 @@ Node.js version 18 or later.
 
 A valid .env file with required configurations (see .env.example).
 
-Usage
 
-Start the server using npm start.
 
 Access the API at http://localhost:3000 (default port).
 
